@@ -5,6 +5,7 @@ import moderno from '@/assets/images/products/moderno-grid.jpg'
 import pretoBrancoAzul from '@/assets/images/products/preto-branco-azul-grid.jpg'
 import roxoVerde from '@/assets/images/products/roxo-verde-grid.jpg'
 import { Button } from '../Button'
+import { Overlay } from '../Overlay'
 
 export const Gallery = () => {
     return (
@@ -17,22 +18,10 @@ export const Gallery = () => {
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/10" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-4 text-center text-white">
-                        <div className="flex w-full max-w-[336px] flex-col items-stretch gap-2.5">
-                            <h2 className="text-xl font-medium leading-6 tracking-[0.08em]">Krypton One</h2>
-                            <p className="text-2xl font-medium leading-8 tracking-[0.08em]">
-                                Estilo urbano com atitude
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-2.5">
-                            <Button variant='secondary'>
-                                Feminino
-                            </Button>
-                            <Button variant='secondary'>
-                                Masculino
-                            </Button>
-                        </div>
-                    </div>
+                    <Overlay title='Krypton One' subtitle='Estilo urbano com atitude' className='inset-0 justify-center'>
+                        <Button variant='secondary'>Feminino</Button>
+                        <Button variant='secondary'>Masculino</Button>
+                    </Overlay>
                 </div>
                 <img
                     src={roxoVerde}
