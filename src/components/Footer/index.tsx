@@ -6,7 +6,7 @@ import { SubscriptionForm } from "../SubscriptionForm";
 
 export const Footer = () => {
   return (
-    <footer className="bg-footer-bg w-full">
+    <footer className="bg-footer-bg w-full text-surface-alt">
       <div className="container">
         <div className='flex flex-col lg:flex-row justify-between py-10 px-2 gap-2'>
           <div className="flex flex-col gap-8 min-w-[344px]">
