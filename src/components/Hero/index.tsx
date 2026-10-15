@@ -5,11 +5,11 @@ import { Overlay } from '../Overlay'
 export const Hero = () => {
     return (
         <div className="container">
-            <section className='h-165 rounded-[20px] mb-10'>
+            <section className='relative h-165 rounded-[20px] mb-10'>
 
                 <img src={Banner} alt="Homem sentado com os tênis da SyntaxWear" className='w-full h-full object-cover rounded-[20px]' />
 
-                <Overlay title='Krypton One' subtitle='Transforme qualquer passo em presença' className='bottom-0 px-6 md:px-24 pb-90 justify-end md:items-end'>
+                <Overlay title='Krypton One' subtitle='Transforme qualquer passo em presença' className='bottom-0 px-6 md:px-24 pb-34 justify-end md:items-end'>
                     <Button variant='secondary'>Ver Modelos</Button>
                     <Button variant='primary'>Comprar</Button>
                 </Overlay>

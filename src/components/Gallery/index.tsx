@@ -9,7 +9,7 @@ import { Overlay } from '../Overlay'
 
 export const Gallery = () => {
     return (
-        <section className="container mx-auto max-w-[1920px] px-2.5 md:pb-10">
+        <section className="container md:pb-10">
             <div className="gallery-grid grid">
                 <div className="relative [grid-area:highlight] min-h-[460px] overflow-hidden rounded-[20px] md:min-h-0">
                     <img
