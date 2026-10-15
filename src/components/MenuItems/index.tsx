@@ -7,7 +7,7 @@ const menus = [
 
 export const MenuItems = () => {
     return (
-        <div className=' flex flex-col sm:flex-row gap-8'>
+        <div className='flex flex-col mt-8 sm:flex-row gap-8'>
             {menus.map(({title, items}) => (
                 <nav>
                     <ul className='flex flex-col gap-4'>
