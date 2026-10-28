@@ -12,7 +12,9 @@ export const Header = () => {
 
                     <nav>
                         <ul className='flex gap-10'>
-                            <li className='hidden md:block'><a href="#">Masculino</a></li>
+                            <li className='hidden md:block'>
+                                <a href="#">Masculino</a>
+                            </li>
                             <li className='hidden md:block'><a href="#">Feminino</a></li>
                             <li className='hidden md:block'><a href="#">Outlet</a></li>
                         </ul>
@@ -21,7 +23,9 @@ export const Header = () => {
                         <ul className='flex gap-4 md:gap-10'>
                             <li className='hidden md:block'><a href="#">Nossas Lojas</a></li>
                             <li className='hidden md:block'><a href="#">Sobre</a></li>
-                            <li><a href="#"><img src={IconUser} alt="Usuário" /></a></li>
+                            <li>
+                                <a href="#"><img src={IconUser} alt="Usuário" /></a>
+                            </li>
                             <li><a href="#"><img src={IconHelp} alt="Ajuda" /></a></li>
                             <li><a href="#"><img src={IconBag} alt="Carrinho" /></a></li>
                         </ul>
