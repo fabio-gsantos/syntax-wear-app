@@ -6,7 +6,7 @@ import { isValidBirthDate } from '../../utils/birthDate-validator';
 
 export const registerUserFormSchema = z
     .object({
-        email: z.email("Informe um e-mail válido.").nonempty("O e-mail é obrigatório."),
+        email: z.email("Informe um e-mail válido."),
 
         password: z
             .string()
@@ -48,7 +48,7 @@ export const registerUserFormSchema = z
 
 export type RegisterFormData = z.infer<typeof registerUserFormSchema>;
 
-export function RegisterForm() {
+export const useRegisterForm = () => {
     const {
         register,
         handleSubmit,

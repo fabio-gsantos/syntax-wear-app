@@ -2,6 +2,7 @@ import Logo from '@/assets/images/logo/logo.svg'
 import IconUser from '@/assets/images/icons/user.svg'
 import IconHelp from '@/assets/images/icons/help.svg'
 import IconBag from '@/assets/images/icons/bag.svg'
+import { Link } from '@tanstack/react-router'
 
 export const Header = () => {
     return (
@@ -24,7 +25,9 @@ export const Header = () => {
                             <li className='hidden md:block'><a href="#">Nossas Lojas</a></li>
                             <li className='hidden md:block'><a href="#">Sobre</a></li>
                             <li>
-                                <a href="#"><img src={IconUser} alt="Usuário" /></a>
+                                <Link to='/sign-up'>
+                                    <img src={IconUser} alt="Usuário" />
+                                </Link>
                             </li>
                             <li><a href="#"><img src={IconHelp} alt="Ajuda" /></a></li>
                             <li><a href="#"><img src={IconBag} alt="Carrinho" /></a></li>
