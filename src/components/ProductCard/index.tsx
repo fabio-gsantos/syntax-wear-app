@@ -2,12 +2,17 @@ import { Link } from "@tanstack/react-router"
 import type { Product } from "../../interfaces/product"
 import { MdAddShoppingCart } from "react-icons/md"
 import { formatCurrency } from "../../helpers/currency-format"
+import { useContext } from "react"
+import { CartContext } from "../../contexts/CartContext"
 
 interface ProductCardProps {
     product: Product
 }
 
 export const ProductCard = ({product} : ProductCardProps) => {
+
+    const { addProduct } = useContext(CartContext)
+
     return (
         <div className="bg-white rounded-2xl shadow-md">
             <Link to='/products/$productId' params={{ productId: String(product.id) }}>
@@ -23,7 +28,7 @@ export const ProductCard = ({product} : ProductCardProps) => {
                     <p className="font-bold">
                         {formatCurrency(product.price)}
                     </p>
-                    <button className="cursor-pointer">
+                    <button className="cursor-pointer" onClick={() => addProduct(product)}>
                         <MdAddShoppingCart className="w-7 h-7" />
                     </button>
                 </div>

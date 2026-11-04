@@ -1,58 +1,15 @@
 import IconBag from "@/assets/images/icons/bag.svg";
-import { useState } from "react";
-import MensTreeDasher from "@/assets/images/images-products/tree-dasher-2-natural-black-boyal-blue.webp";
-import MensTreeRunnerNz from "@/assets/images/images-products/tree-runner-nz-weathered-brown.webp";
-import MensWoolCruiser from "@/assets/images/images-products/wool-cruiser-burgundy.webp";
-import MensWoolCruiserSlipOn from "@/assets/images/images-products/wool-cruiser-slip-on-dark-grey.webp";
-import MensWoolCruiserWaterproof from "@/assets/images/images-products/wool-cruiser-waterproof-natural-black.webp";
+import { useContext, useState } from "react";
 import { formatCurrency } from "../../helpers/currency-format";
-import { products } from "../../mocks/products";
+import { CartContext } from "../../contexts/CartContext";
 
-const productsInCart = [
-  {
-    id: 1,
-    name: "Mens tree dasher 2",
-    image: MensTreeDasher,
-    price: 135,
-    color: "Natural Black/Royal blue",
-    quantity: 5,
-  },
-  {
-    id: 2,
-    name: "Mens tree runner nz",
-    image: MensTreeRunnerNz,
-    price: 110,
-    color: "Weathered Brown",
-    quantity: 3,
-  },
-  {
-    id: 3,
-    name: "Mens wool cruiser",
-    image: MensWoolCruiser,
-    price: 100,
-    color: "Burgundy",
-    quantity: 3,
-  },
-  {
-    id: 4,
-    name: "Mens wool cruiser slip on",
-    image: MensWoolCruiserSlipOn,
-    price: 95,
-    color: "Dark Grey",
-    quantity: 6,
-  },
-  {
-    id: 5,
-    name: "Mens wool cruiser waterproof",
-    image: MensWoolCruiserWaterproof,
-    price: 140,
-    color: "Natural Black",
-    quantity: 2,
-  },
-];
 
 export const ShoppingCart = () => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+  const { cart, removeItem, increment, decrement } = useContext(CartContext)
+
+  console.log("itens no carrinho: ", cart);
+  
 
   return (
     <>
@@ -73,15 +30,15 @@ export const ShoppingCart = () => {
           className={`${cartIsOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106`}
           onClick={(e) => e.stopPropagation()}
         >
-          <header className="flex items-center justify-between px-5">
-            <p className="text-2xl font-bold">Carrinho ({productsInCart.length})</p>
+          <header className="flex items-center justify-between px-5 mb-6">
+            <p className="text-2xl font-bold">Carrinho ({cart.length})</p>
             <button className="text-xl cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>X</button>
           </header>
 
           <ul className="px-4 overflow-y-auto scrollbar-hide h-[calc(100%_-_140px)] flex flex-col gap-10">
-            {productsInCart.map((product) => (
+            {cart.map((product) => (
               <li key={product.id} className="flex flex-col gap-1 px-6">
-                <button className="self-end text-xs cursor-pointer">X</button>
+                <button className="self-end text-xs cursor-pointer" onClick={() => removeItem(product.id)}>X</button>
 
                 <div className="flex gap-4">
                   <img
@@ -103,9 +60,9 @@ export const ShoppingCart = () => {
                       à vista
                     </p>
                     <div className="flex border gap-4 px-2 items-center">
-                      <button className="cursor-pointer">-</button>
+                      <button className="cursor-pointer" onClick={() => decrement(product)}>-</button>
                       <p className="text-sm">{product.quantity}</p>
-                      <button className="cursor-pointer">+</button>
+                      <button className="cursor-pointer" onClick={() => increment(product)}>+</button>
                     </div>
                   </div>
                 </div>
