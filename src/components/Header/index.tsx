@@ -7,7 +7,7 @@ import { ShoppingCart } from "../ShoppingCart";
 export const Header = () => {
   return (
     <div className="relative">
-      <header className="fixed top-10 left-6 right-6 lg:left-10 lg:right-10 z-10">
+      <header className="fixed top-5 left-6 right-6 lg:left-10 lg:right-10 z-10">
         <div className="bg-white max-w-[1320px] mx-auto flex justify-between items-center py-3 px-6 md:px-8 rounded-2xl mt-5">
           <Link to="/" className="shrink-0">
             <img src={Logo} alt="Logo SyntaxWear" className="w-28 md:w-36" />
@@ -29,7 +29,7 @@ export const Header = () => {
           <nav>
             <ul className="flex items-center gap-4 md:gap-10">
               <li className="hidden lg:block">
-                <a href="#">Nossas Lojas</a>
+                <Link to='/our-stores'>Nossas Lojas</Link>
               </li>
               <li className="hidden lg:block">
                 <a href="#">Sobre</a>
