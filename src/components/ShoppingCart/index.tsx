@@ -35,15 +35,15 @@ export const ShoppingCart = () => {
       >
         {/* { Drawer } */}
         <div
-          className={`${cartIsOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106`}
+          className={`${cartIsOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 flex flex-col transition-all duration-500 ease-in-out w-75 md:w-106`}
           onClick={(e) => e.stopPropagation()}
         >
-          <header className="flex items-center justify-between px-5 mb-6">
+          <header className="flex items-center justify-between px-5 mb-6 shrink-0">
             <p className="text-2xl font-bold">Carrinho ({cart.length})</p>
             <button className="text-xl cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>X</button>
           </header>
 
-          <ul className="px-4 overflow-y-auto scrollbar-hide h-[calc(100%_-_190px)] flex flex-col gap-10">
+          <ul className="px-4 pb-6 flex-1 min-h-0 overflow-y-auto scrollbar-hide flex flex-col gap-10">
             {cart.map((product) => (
               <li key={product.id} className="flex flex-col gap-1 px-6">
                 <button className="self-end text-xs cursor-pointer" onClick={() => removeItem(product.id)}>X</button>
@@ -77,12 +77,12 @@ export const ShoppingCart = () => {
               </li>
             ))}
           </ul>
-          <footer className="absolute bottom-0 w-full h-[150px] p-4 flex flex-col gap-3 border-t border-gray-200 bg-white">
+          <footer className="shrink-0 p-4 flex flex-col gap-3 border-t border-gray-200 bg-white">
             <div className="flex items-center justify-between">
               <span className="text-base">Subtotal</span>
               <span className="text-lg font-bold">{formatCurrency(subtotal)}</span>
             </div>
-            <button className="bg-black text-white w-full flex-1 rounded-xs cursor-pointer hover:bg-gray-800 transition">Fechar pedido</button>
+            <button className="bg-black text-white w-full h-14 rounded-xs cursor-pointer hover:bg-gray-800 transition">Fechar pedido</button>
           </footer>
         </div>
       </div>
