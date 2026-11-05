@@ -8,16 +8,24 @@ export const ShoppingCart = () => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
   const { cart, removeItem, increment, decrement } = useContext(CartContext)
 
-  console.log("itens no carrinho: ", cart);
-  
+  const subtotal = cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
 
   return (
     <>
       <button
-        className="flex cursor-pointer items-center"
+        className="relative flex cursor-pointer items-center"
         onClick={() => setCartIsOpen(!cartIsOpen)}
       >
         <img src={IconBag} alt="Ícone carrinho de compras" />
+        {cart.length > 0 && (
+          <span className="absolute -top-1 -right-1 bg-[#9640f1] text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+            {/* O contador no ícone da sacola com cart.length mostrava a quantidade de produtos distintos. Desta forna, ele mostra o total de unidades (por exemplo, 2 pares do mesmo tênis contam como 2) */}
+            {cart.reduce((acc, p) => acc + p.quantity, 0)}
+          </span>
+        )}
       </button>
 
       {/* { Overlay } */}
@@ -35,7 +43,7 @@ export const ShoppingCart = () => {
             <button className="text-xl cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>X</button>
           </header>
 
-          <ul className="px-4 overflow-y-auto scrollbar-hide h-[calc(100%_-_140px)] flex flex-col gap-10">
+          <ul className="px-4 overflow-y-auto scrollbar-hide h-[calc(100%_-_190px)] flex flex-col gap-10">
             {cart.map((product) => (
               <li key={product.id} className="flex flex-col gap-1 px-6">
                 <button className="self-end text-xs cursor-pointer" onClick={() => removeItem(product.id)}>X</button>
@@ -69,8 +77,12 @@ export const ShoppingCart = () => {
               </li>
             ))}
           </ul>
-          <footer className="absolute bottom-0 w-full h-[100px] p-4">
-            <button className="bg-black text-white w-full h-full rounded-xs cursor-pointer hover:bg-gray-800 transition">Fechar pedido</button>
+          <footer className="absolute bottom-0 w-full h-[150px] p-4 flex flex-col gap-3 border-t border-gray-200 bg-white">
+            <div className="flex items-center justify-between">
+              <span className="text-base">Subtotal</span>
+              <span className="text-lg font-bold">{formatCurrency(subtotal)}</span>
+            </div>
+            <button className="bg-black text-white w-full flex-1 rounded-xs cursor-pointer hover:bg-gray-800 transition">Fechar pedido</button>
           </footer>
         </div>
       </div>
