@@ -3,6 +3,18 @@ import IconUser from "@/assets/images/icons/user.svg";
 import IconHelp from "@/assets/images/icons/help.svg";
 import { Link } from "@tanstack/react-router";
 import { ShoppingCart } from "../ShoppingCart";
+import { MenuMobile } from "../MenuMobile";
+
+export interface NavLink {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { name: "Masculino", href: "/products" },
+  { name: "Feminino", href: "/products" },
+  { name: "Outlet", href: "/products" },
+]
 
 export const Header = () => {
   return (
@@ -13,42 +25,38 @@ export const Header = () => {
             <img src={Logo} alt="Logo SyntaxWear" className="w-28 md:w-36" />
           </Link>
 
-          <nav className="hidden lg:block">
+          <nav className="hidden md:block">
             <ul className="flex gap-10">
-              <li className="hidden md:block">
-                <Link to="/products">Masculino</Link>
-              </li>
-              <li className="hidden md:block">
-                <a href="#">Feminino</a>
-              </li>
-              <li className="hidden md:block">
-                <a href="#">Outlet</a>
-              </li>
+              {navLinks.map((link) => (
+                <Link to={link.href} key={link.name} className='hover:text-accent'>
+                  {link.name}
+                </Link>
+              ))}
             </ul>
           </nav>
+
           <nav>
             <ul className="flex items-center gap-4 md:gap-10">
-              <li className="hidden lg:block">
+              <li className="hidden lg:block hover:text-accent">
                 <Link to='/our-stores'>Nossas Lojas</Link>
               </li>
-              <li className="hidden lg:block">
+              <li className="hidden lg:block hover:text-accent">
                 <Link to='/about'>Sobre</Link>
               </li>
-              <li>
+              <li className="md:hidden">
+                <MenuMobile navLinks={navLinks}/>
+              </li>
+              <li className="hidden md:block">
                 <Link to="/sign-up">
                   <img src={IconUser} alt="Usuário" />
                 </Link>
               </li>
-              <li>
+              <li className="hidden md:block">
                 <a href="#">
                   <img src={IconHelp} alt="Ajuda" />
                 </a>
               </li>
               <li>
-                {/* <a href="#">
-                  <img src={IconBag} alt="Carrinho" />
-                </a> */}
-
                 <ShoppingCart />
               </li>
             </ul>

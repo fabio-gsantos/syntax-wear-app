@@ -9,7 +9,7 @@ export const Route = createFileRoute('/_app/our-stores/')({
 
 function RouteComponent() {
     return <section className='container py-6'>
-        <img src={OurStoresBanner} alt="Banner do Interior da Loja com os Tênis" className='rounded-[20px] h-28 md:h-125 object-cover w-full' />
+        <img src={OurStoresBanner} alt="Banner do Interior da Loja com os Tênis" className='rounded-[20px] h-100 md:h-125 object-cover w-full' />
 
         <div>
             <h1 className='text-2xl max-w-7x1 m-auto my-20 text-center'>Nossas lojas são o coração da nossa marca. Explore a coleção mais recente, experimente seus modelos favoritos e sinta o conforto da SyntaxWear pessoalmente.</h1>
