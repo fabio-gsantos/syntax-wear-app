@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import OurStoresBanner from '@/assets/images/stores/banner-our-stores.png'
-import OurStoresImg1 from '@/assets/images/stores/loja-1.png'
-import OurStoresImg2 from '@/assets/images/stores/loja-2.png'
+import OurStoresBanner from '@/assets/images/images-stores/banner-our-stores.png'
+import OurStoresImg1 from '@/assets/images/images-stores/loja-1.png'
+import OurStoresImg2 from '@/assets/images/images-stores/loja-2.png'
 
 export const Route = createFileRoute('/_app/our-stores/')({
     component: RouteComponent,

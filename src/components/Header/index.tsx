@@ -32,7 +32,7 @@ export const Header = () => {
                 <Link to='/our-stores'>Nossas Lojas</Link>
               </li>
               <li className="hidden lg:block">
-                <a href="#">Sobre</a>
+                <Link to='/about'>Sobre</Link>
               </li>
               <li>
                 <Link to="/sign-up">
