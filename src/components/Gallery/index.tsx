@@ -6,8 +6,13 @@ import pretoBrancoAzul from '@/assets/images/products/preto-branco-azul-grid.jpg
 import roxoVerde from '@/assets/images/products/roxo-verde-grid.jpg'
 import { Button } from '../Button'
 import { Overlay } from '../Overlay'
+import { useRouter } from '@tanstack/react-router'
+import { categories } from '../../mocks/categories';
 
 export const Gallery = () => {
+
+    const router = useRouter();
+
     return (
         <section className="container md:pb-10">
             <div className="gallery-grid grid">
@@ -19,8 +24,8 @@ export const Gallery = () => {
                     />
                     <div className="absolute inset-0 bg-black/10" />
                     <Overlay title='Krypton One' subtitle='Estilo urbano com atitude' className='inset-0 justify-center'>
-                        <Button variant='secondary'>Feminino</Button>
-                        <Button variant='secondary'>Masculino</Button>
+                        <Button variant='secondary' onClick={() => router.navigate({ to: "/products/category/$category", params: { category: "feminino" } })}>Feminino</Button>
+                        <Button variant='secondary' onClick={() => router.navigate({ to: "/products/category/$category", params: { category: "masculino" } })}>Masculino</Button>
                     </Overlay>
                 </div>
                 <img
