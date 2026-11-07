@@ -6,6 +6,11 @@ import { Separator } from '../../components/Separator'
 
 export const Route = createFileRoute('/_auth/sign-in')({
   component: RouteComponent,
+  head: () => ({
+        meta: [
+            { title: 'Login - SyntaxWear'}
+        ]
+    })
 })
 
 function RouteComponent() {
@@ -28,7 +33,7 @@ function RouteComponent() {
           <p>
             Ainda não possui conta? {""} 
             <Link to="/sign-up" className='text-[#5433EB] hover:underline'>
-              Cadastra-se
+              Cadastre-se
             </Link>
           </p>
         </div>
