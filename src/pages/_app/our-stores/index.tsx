@@ -20,7 +20,7 @@ function RouteComponent() {
             <h1 className='text-2xl max-w-7x1 m-auto my-20 text-center'>Nossas lojas são o coração da nossa marca. Explore a coleção mais recente, experimente seus modelos favoritos e sinta o conforto da SyntaxWear pessoalmente.</h1>
 
             <section className='w-full space-y-20'>
-                <div className='flex flex-col md:flex-row items-center gap-2.5'>
+                <div className='flex flex-col md:flex-row items-center justify-center gap-2.5'>
                     <div className='text-center py-6 px-2'>
                         <h2 className='text-3xl mb-5'>Novidades ao vivo</h2>
 
@@ -30,7 +30,7 @@ function RouteComponent() {
                     <img src={OurStoresImg1} alt="Imagem de um tênis da loja." className='rounded-[20px] md:max-w-[42vw] aspect-10/7 object-cover size-full' />
                 </div>
 
-                <div className='flex flex-col md:flex-row items-center gap-2.5'>
+                <div className='flex flex-col md:flex-row items-center justify-center gap-2.5'>
                     <img src={OurStoresImg2} alt="Imagem de um tênis da loja." className='rounded-[20px] md:max-w-[42vw] aspect-10/7 object-cover size-full' />
 
                     <div className='text-center py-6 px-2'>

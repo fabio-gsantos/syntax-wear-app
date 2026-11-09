@@ -24,7 +24,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
             >
                 {/* { Drawer } */}
                 <div
-                    className={`${isOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106`}
+                    className={`${isOpen ? "translate-x-0" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-106 flex flex-col h-full`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <header className="flex items-center justify-between px-5 mb-6 shrink-0">
@@ -32,7 +32,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                         <button className="text-xl cursor-pointer" onClick={onClose}>X</button>
                     </header>
 
-                    <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100%_-_140px)] flex flex-col gap-3">
+                    <ul className="p-4 overflow-y-auto scrollbar-hide flex-1 flex-col min-h-0 gap-3">
                         {cart.map((product) => (
                             <li key={product.id} className="flex flex-col gap-1 px-6">
                                 <button className="self-end text-xs cursor-pointer" onClick={() => removeItem(product.id)}>X</button>
