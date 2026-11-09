@@ -7,7 +7,7 @@ import roxoVerde from '@/assets/images/products/roxo-verde-grid.jpg'
 import { Button } from '../Button'
 import { Overlay } from '../Overlay'
 import { useRouter } from '@tanstack/react-router'
-import { categories } from '../../mocks/categories';
+
 
 export const Gallery = () => {
 
