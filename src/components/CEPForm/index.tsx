@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useCEPForm } from "./cep-form.schema";
 import type { Address } from "../../interfaces/address";
 import { formatCurrency } from "../../helpers/currency-format";
-import { FiVideo } from "react-icons/fi";
 
 const SHIPPING_BY_REGION: Record<string, number> = {
     "Norte": 39.90,
@@ -55,8 +54,8 @@ export const CEPForm = () => {
                         type="text"
                         placeholder="Insira seu CEP"
                         className={`border rounded-md p-3 flex-1 min-w-0 focus:outline-none focus:ring-2 ${errors.cep
-                            ? "border-red-500 focus:ring-red-400"
-                            : "border-[#c0c0c0] focus:ring-[#5433eb]"
+                            ? "border-error focus:ring-red-400"
+                            : "border-border focus:ring-accent"
                             }`}
                         {...register("cep")}
                     />
@@ -72,13 +71,13 @@ export const CEPForm = () => {
             </form>
             {
                 errors.cep && (
-                    <p className="text-xs text-red-600 mt-1">{errors.cep.message}</p>
+                    <p className="text-xs text-error mt-1">{errors.cep.message}</p>
                 )
             }
 
             {addressError && (
 
-                <p className="mt-1 text-xs text-red-600">{addressError}</p>
+                <p className="mt-1 text-xs text-error">{addressError}</p>
 
             )}
 

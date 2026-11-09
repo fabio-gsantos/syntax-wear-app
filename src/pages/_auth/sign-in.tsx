@@ -23,7 +23,7 @@ function RouteComponent() {
           <h2 className='text-black font-bold text-[21px] mb-2'>Entrar</h2>
 
           <p className='mb-1.5'>Escolha como você gostaria de fazer o login.</p>
-          <button className='w-full flex items-center justify-center gap-2 border border-gray-300 rounded-md hover:bg-gray-50 trasition p-3 cursor-pointer'>
+          <button className='w-full flex items-center justify-center gap-2 border border-border rounded-md hover:bg-gray-50 trasition p-3 cursor-pointer'>
             <img src={GoogleIcon} alt="Ícone do Google" className='w-5 h-5' />
             <span className='text-sm font-medium text-black'>Continuar com o Google</span>
           </button>
@@ -32,7 +32,7 @@ function RouteComponent() {
 
           <p>
             Ainda não possui conta? {""} 
-            <Link to="/sign-up" className='text-[#5433EB] hover:underline'>
+            <Link to="/sign-up" className='text-accent hover:underline'>
               Cadastre-se
             </Link>
           </p>

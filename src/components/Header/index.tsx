@@ -1,6 +1,5 @@
 import Logo from "@/assets/images/logo/logo.svg";
 import IconUser from "@/assets/images/icons/user.svg";
-import IconHelp from "@/assets/images/icons/help.svg";
 import { Link } from "@tanstack/react-router";
 import { ShoppingCart } from "../ShoppingCart";
 import { MenuMobile } from "../MenuMobile";
@@ -28,7 +27,7 @@ export const Header = () => {
           <nav className="hidden md:block">
             <ul className="flex gap-10">
               {navLinks.map((link) => (
-                <Link to={link.href} key={link.name} className='hover:text-accent'>
+                <Link to={link.href} key={link.name} className='hover:text-primary'>
                   {link.name}
                 </Link>
               ))}
@@ -37,10 +36,10 @@ export const Header = () => {
 
           <nav>
             <ul className="flex items-center gap-4 md:gap-10">
-              <li className="hidden lg:block hover:text-accent">
+              <li className="hidden lg:block hover:text-primary">
                 <Link to='/our-stores'>Nossas Lojas</Link>
               </li>
-              <li className="hidden lg:block hover:text-accent">
+              <li className="hidden lg:block hover:text-primary">
                 <Link to='/about'>Sobre</Link>
               </li>
               <li className="md:hidden">
@@ -51,11 +50,7 @@ export const Header = () => {
                   <img src={IconUser} alt="Usuário" />
                 </Link>
               </li>
-              <li className="hidden md:block">
-                <a href="#">
-                  <img src={IconHelp} alt="Ajuda" />
-                </a>
-              </li>
+              
               <li>
                 <ShoppingCart />
               </li>
