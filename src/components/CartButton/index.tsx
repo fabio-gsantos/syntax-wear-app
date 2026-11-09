@@ -9,11 +9,6 @@ interface CartButtonProps {
 
 export const CartButton = ({ onClick }: CartButtonProps) => {
 const { cart } = useContext(CartContext)
-const subtotal = cart.reduce(
-    (total, product) => total + product.price * product.quantity,
-    0
-  );
-
     return (
         <button
         className="relative flex cursor-pointer items-center"
